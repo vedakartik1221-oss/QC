@@ -4,3 +4,10 @@ maxUploadSize = 20          # MB, for the batch-screening CSV upload
 
 [browser]
 gatherUsageStats = false
+
+[theme]
+primaryColor = "#6D5DF5"
+baseRadius = "0.75rem"
+buttonRadius = "0.6rem"
+showWidgetBorder = true
+headingFontWeights = [700, 650, 600, 600, 600, 600]

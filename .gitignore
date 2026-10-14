@@ -21,3 +21,6 @@ desktop.ini
 .vscode/
 .idea/
 ~$*
+
+# Local Claude Code config
+.claude/
