@@ -6,8 +6,22 @@ maxUploadSize = 20          # MB, for the batch-screening CSV upload
 gatherUsageStats = false
 
 [theme]
-primaryColor = "#6D5DF5"
-baseRadius = "0.75rem"
-buttonRadius = "0.6rem"
+base = "dark"
+primaryColor = "#8B7CFF"
+backgroundColor = "#070B1A"
+secondaryBackgroundColor = "#121935"
+textColor = "#E7E9FF"
+borderColor = "#262F5A"
+linkColor = "#7DD3FC"
+font = "Inter:https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap, sans-serif"
+headingFont = "Space Grotesk:https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap, sans-serif"
+codeFont = "JetBrains Mono:https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap, monospace"
+baseRadius = "0.9rem"
+buttonRadius = "0.7rem"
 showWidgetBorder = true
 headingFontWeights = [700, 650, 600, 600, 600, 600]
+chartCategoricalColors = ["#8B7CFF", "#22D3EE", "#F472B6", "#34D399", "#FBBF24", "#60A5FA"]
+
+[theme.sidebar]
+backgroundColor = "#0B1027"
+secondaryBackgroundColor = "#141B3D"

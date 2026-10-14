@@ -23,18 +23,113 @@ REPO = "https://github.com/vedakartik1221-oss/QC/blob/main"
 
 st.html("""
 <style>
-.qs-hero {padding: 1.6rem 1.8rem; border-radius: 1rem; margin-bottom: .5rem;
-          background: linear-gradient(120deg, rgba(109,93,245,.16), rgba(56,189,248,.12));
-          border: 1px solid rgba(109,93,245,.25);}
-.qs-hero h1 {margin: 0 0 .35rem 0; font-size: 2.1rem; line-height: 1.15;}
-.qs-hero p {margin: 0; opacity: .8; font-size: 1.02rem; max-width: 52rem;}
-.qs-hero .qs-tags {margin-top: .8rem; display: flex; gap: .4rem; flex-wrap: wrap;}
-.qs-hero .qs-tags span {font-size: .78rem; padding: .18rem .6rem; border-radius: 999px;
-          background: rgba(109,93,245,.14); border: 1px solid rgba(109,93,245,.3);}
-[data-testid="stImage"] img {border-radius: .75rem;}
-.qs-verdict {font-size: 1.5rem; font-weight: 700; margin: 0;}
+/* ---- backdrop: deep-space gradient with soft glows ---- */
+.stApp {
+  background:
+    radial-gradient(1100px 600px at 85% -10%, rgba(139,124,255,.22), transparent 60%),
+    radial-gradient(900px 500px at -10% 30%, rgba(34,211,238,.12), transparent 60%),
+    radial-gradient(800px 600px at 60% 110%, rgba(244,114,182,.10), transparent 60%),
+    #070B1A;
+  background-attachment: fixed;
+}
+[data-testid="stHeader"] {background: transparent;}
+[data-testid="stSidebar"] {border-right: 1px solid rgba(139,124,255,.18);}
+
+/* ---- hero ---- */
+.qs-hero {position: relative; overflow: hidden; display: flex; align-items: center; gap: 2rem;
+  padding: 2.2rem 2.4rem; border-radius: 1.4rem; margin-bottom: .6rem;
+  background: linear-gradient(135deg, rgba(139,124,255,.20), rgba(34,211,238,.10) 55%, rgba(244,114,182,.12));
+  border: 1px solid rgba(139,124,255,.35);
+  box-shadow: 0 20px 60px -20px rgba(139,124,255,.45), inset 0 1px 0 rgba(255,255,255,.06);}
+.qs-hero::before {content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .5;
+  background-image: radial-gradient(rgba(255,255,255,.35) 1px, transparent 1px);
+  background-size: 22px 22px; mask-image: linear-gradient(90deg, transparent, #000 70%);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 70%);}
+.qs-hero-text {position: relative; flex: 1; min-width: 0;}
+.qs-eyebrow {font-size: .78rem; letter-spacing: .18em; text-transform: uppercase; color: #7DD3FC; font-weight: 600;}
+.qs-hero h1 {margin: .3rem 0 .6rem 0; padding: 0; font-size: 3rem; line-height: 1.1; font-weight: 700;
+  background: linear-gradient(90deg, #FFFFFF, #C4B5FD 45%, #67E8F9);
+  -webkit-background-clip: text; background-clip: text; color: transparent;}
+.qs-hero p {margin: 0; color: rgba(231,233,255,.78); font-size: 1.08rem; max-width: 46rem; line-height: 1.55;}
+.qs-tags {margin-top: 1.1rem; display: flex; gap: .5rem; flex-wrap: wrap;}
+.qs-tags span {font-size: .78rem; padding: .3rem .75rem; border-radius: 999px; color: #E7E9FF;
+  background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.14);}
+
+/* ---- animated atom ---- */
+.qs-atom {position: relative; width: 170px; height: 170px; flex: none;}
+.qs-atom .nucleus {position: absolute; left: 50%; top: 50%; width: 26px; height: 26px; margin: -13px; border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #fff, #A78BFA 45%, #6D28D9);
+  box-shadow: 0 0 30px 8px rgba(167,139,250,.6); animation: qs-pulse 2.8s ease-in-out infinite;}
+.qs-atom .orbit {position: absolute; inset: 0; border-radius: 50%;}
+.qs-atom .orbit:nth-child(2) {transform: rotate(60deg) scaleY(.38);}
+.qs-atom .orbit:nth-child(3) {transform: rotate(-60deg) scaleY(.38);}
+.qs-atom .orbit:nth-child(4) {transform: rotate(0deg) scaleY(.38);}
+.qs-atom .orbit > div {position: absolute; inset: 0; border-radius: 50%; border: 1.5px solid rgba(125,211,252,.5);
+  animation: qs-spin 3.2s linear infinite;}
+.qs-atom .orbit:nth-child(3) > div {border-color: rgba(244,114,182,.5); animation-duration: 4.1s; animation-direction: reverse;}
+.qs-atom .orbit:nth-child(4) > div {border-color: rgba(196,181,253,.55); animation-duration: 5s;}
+.qs-atom .orbit > div::after {content: ""; position: absolute; top: -6px; left: 50%; width: 11px; height: 11px;
+  margin-left: -5.5px; border-radius: 50%; background: #67E8F9; box-shadow: 0 0 14px 4px rgba(103,232,249,.85);}
+.qs-atom .orbit:nth-child(3) > div::after {background: #F9A8D4; box-shadow: 0 0 14px 4px rgba(244,114,182,.85);}
+.qs-atom .orbit:nth-child(4) > div::after {background: #DDD6FE; box-shadow: 0 0 14px 4px rgba(196,181,253,.85);}
+@keyframes qs-spin {to {transform: rotate(360deg);}}
+@keyframes qs-pulse {50% {box-shadow: 0 0 44px 14px rgba(167,139,250,.75);}}
+@media (max-width: 760px) {.qs-atom {display: none;} .qs-hero {padding: 1.5rem;} .qs-hero h1 {font-size: 2.2rem;}}
+
+/* ---- glass cards: metrics and bordered containers ---- */
+[data-testid="stMetric"] {background: linear-gradient(160deg, rgba(139,124,255,.12), rgba(18,25,53,.6));
+  border-color: rgba(139,124,255,.3) !important; transition: transform .18s ease, box-shadow .18s ease;}
+[data-testid="stMetric"]:hover {transform: translateY(-2px); box-shadow: 0 10px 30px -12px rgba(139,124,255,.6);}
+[data-testid="stMetricValue"] {font-family: "Space Grotesk", sans-serif; font-weight: 600;}
+[data-testid="stMetricLabel"] p {color: rgba(231,233,255,.7);}
+
+/* ---- tabs as pills ---- */
+[data-testid="stTabs"] [role="tablist"] {gap: .4rem; padding: .35rem; border-radius: 999px; width: fit-content;
+  max-width: 100%; overflow-x: auto; background: rgba(18,25,53,.75); border: 1px solid rgba(139,124,255,.25);}
+[data-testid="stTab"] {border-radius: 999px; padding: .45rem 1.1rem !important; height: auto; transition: background .15s ease;}
+[data-testid="stTab"]:hover {background: rgba(139,124,255,.12);}
+[data-testid="stTab"][aria-selected="true"] {background: linear-gradient(135deg, #8B7CFF, #6366F1);
+  box-shadow: 0 6px 18px -6px rgba(139,124,255,.8);}
+[data-testid="stTab"][aria-selected="true"] * {color: #fff !important;}
+/* ---- buttons and progress ---- */
+[data-testid="stBaseButton-primary"] {background: linear-gradient(135deg, #8B7CFF, #22D3EE); border: 0;
+  box-shadow: 0 8px 24px -8px rgba(139,124,255,.9); transition: transform .15s ease, filter .15s ease;}
+[data-testid="stBaseButton-primary"]:hover {transform: translateY(-1px); filter: brightness(1.1);}
+
+/* ---- molecule images and section headings ---- */
+[data-testid="stImage"] img {border-radius: .9rem;}
+.qs-section {display: flex; align-items: center; gap: .6rem; margin: .8rem 0 .2rem 0;
+  font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: 1.15rem;}
+.qs-section::after {content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, rgba(139,124,255,.55), transparent);}
+
+/* ---- probability ring ---- */
+.qs-ring-wrap {display: flex; align-items: center; gap: 1.4rem; flex-wrap: wrap;}
+.qs-ring {width: 132px; height: 132px; flex: none; border-radius: 50%; display: grid; place-items: center;}
+.qs-ring > div {width: 104px; height: 104px; border-radius: 50%; background: #0D1330; display: grid; place-items: center;
+  text-align: center; font-family: "Space Grotesk", sans-serif;}
+.qs-ring b {font-size: 1.7rem; line-height: 1;} .qs-ring small {display: block; opacity: .65; font-size: .7rem; margin-top: .25rem;}
+.qs-verdict {font-family: "Space Grotesk", sans-serif; font-size: 1.45rem; font-weight: 600; margin: 0 0 .3rem 0;}
+.qs-verdict.good {color: #6EE7B7;} .qs-verdict.bad {color: #FCA5A5;}
+.qs-sub {color: rgba(231,233,255,.72); font-size: .93rem; margin: 0; line-height: 1.5;}
+
+/* ---- top candidate rank badge ---- */
+.qs-rank {display: flex; align-items: center; gap: .6rem; font-family: "Space Grotesk", sans-serif;}
+.qs-rank b {display: inline-grid; place-items: center; width: 2rem; height: 2rem; border-radius: 50%; font-size: .95rem;
+  background: linear-gradient(135deg, #8B7CFF, #22D3EE); color: #fff;}
+.qs-rank span {opacity: .8; font-size: .92rem;}
 </style>
 """)
+
+
+def section(title: str):
+    st.html(f'<div class="qs-section">{title}</div>')
+
+
+def prob_ring(p: float, label: str = "P(active)") -> str:
+    color = "#34D399" if p >= 0.5 else "#F87171"
+    return (f'<div class="qs-ring" style="background: conic-gradient({color} {p * 100:.1f}%, '
+            f'rgba(255,255,255,.08) 0); box-shadow: 0 0 40px -8px {color};">'
+            f'<div><div><b>{p:.0%}</b><small>{label}</small></div></div></div>')
 
 
 # ---------------------------------------------------------------- data / models
@@ -66,7 +161,11 @@ def mol_svg(smiles: str, w: int = 360, h: int = 280) -> str | None:
     if mol is None:
         return None
     d = rdMolDraw2D.MolDraw2DSVG(w, h)
-    d.drawOptions().addStereoAnnotation = True
+    opts = d.drawOptions()
+    rdMolDraw2D.SetDarkMode(opts)
+    opts.setBackgroundColour((0, 0, 0, 0))
+    opts.addStereoAnnotation = True
+    opts.bondLineWidth = 2
     rdMolDraw2D.PrepareAndDrawMolecule(d, mol)
     d.FinishDrawing()
     return d.GetDrawingText()
@@ -120,11 +219,16 @@ with st.sidebar:
 # ---------------------------------------------------------------- header
 st.html("""
 <div class="qs-hero">
-  <h1>⚛️ QuantumScreen</h1>
-  <p>Score molecules for activity against <b>BACE-1</b>, an Alzheimer's disease target, with a
-  quantum-kernel support vector machine, then rank them by predicted activity and drug-likeness.</p>
-  <div class="qs-tags"><span>Qiskit</span><span>Quantum kernel SVM</span><span>RDKit</span>
-  <span>1,513 BACE molecules</span><span>Simulated circuits</span></div>
+  <div class="qs-hero-text">
+    <div class="qs-eyebrow">Quantum machine learning · Drug discovery</div>
+    <h1>QuantumScreen</h1>
+    <p>Score molecules for activity against <b>BACE-1</b>, an Alzheimer's disease target, with a
+    quantum-kernel support vector machine, then rank them by predicted activity and drug-likeness.</p>
+    <div class="qs-tags"><span>⚛️ Qiskit</span><span>🧬 Quantum kernel SVM</span><span>🧪 RDKit</span>
+    <span>📊 1,513 BACE molecules</span><span>💻 Simulated circuits</span></div>
+  </div>
+  <div class="qs-atom"><div class="nucleus"></div><div class="orbit"><div></div></div>
+    <div class="orbit"><div></div></div><div class="orbit"><div></div></div></div>
 </div>
 """)
 
@@ -167,13 +271,12 @@ with tab1:
             st.caption(f"`{smiles}`")
         with right:
             with st.container(border=True):
-                if promising:
-                    st.badge("Promising candidate", icon=":material/check_circle:", color="green")
-                else:
-                    st.badge("Unlikely to be active", icon=":material/cancel:", color="red")
-                st.markdown(f'<p class="qs-verdict">{pq:.1%} predicted probability of activity</p>',
-                            unsafe_allow_html=True)
-                st.progress(pq)
+                verdict = ("good", "Promising candidate", "The quantum model predicts this molecule is likely "
+                           "to inhibit BACE-1.") if promising else \
+                          ("bad", "Unlikely to be active", "The quantum model predicts this molecule is unlikely "
+                           "to inhibit BACE-1.")
+                st.html(f'<div class="qs-ring-wrap">{prob_ring(pq)}<div><p class="qs-verdict {verdict[0]}">'
+                        f'{verdict[1]}</p><p class="qs-sub">{verdict[2]}</p></div></div>')
                 m1, m2 = st.columns(2)
                 m1.metric("Quantum kernel SVM", f"{pq:.1%}")
                 if pc is not None:
@@ -191,7 +294,7 @@ with tab1:
             else:
                 st.error(f"Fails Lipinski's rule of five ({viol} violations).", icon=":material/report:")
 
-        st.markdown("##### Drug-likeness")
+        section("🧪 Drug-likeness")
         rules = [("Mol. weight", props.MW, 500, "{:.0f}", "Molecular weight in Da"),
                  ("LogP", props.LogP, 5, "{:.2f}", "Octanol-water partition coefficient"),
                  ("H donors", props.HBD, 5, "{:.0f}", "Hydrogen-bond donors"),
@@ -252,14 +355,15 @@ with tab2:
             s3.metric("Pass Lipinski", int(ranked.passes_lipinski.sum()), border=True)
             s4.metric("Best final score", f"{ranked.final_score.max():.3f}", border=True)
 
-            st.markdown("##### Top candidates")
+            section("🏆 Top candidates")
             for col, (_, row) in zip(st.columns(3), ranked.head(3).iterrows()):
                 with col.container(border=True):
-                    st.markdown(f"**#{row['rank']}** · score {row.final_score:.3f}")
+                    st.html(f'<div class="qs-rank"><b>{row["rank"]}</b><span>final score '
+                            f'{row.final_score:.3f}</span></div>')
                     show_mol(row.smiles, 300, 220)
                     st.caption(f"P(active) {row.p_quantum_active:.0%} · QED {row.QED:.2f}")
 
-            st.markdown("##### Full ranking")
+            section("📋 Full ranking")
             table = ranked.copy()
             table.insert(1, "structure", [svg_data_uri(mol_svg(s, 220, 160)) for s in table.smiles])
             pct = dict(min_value=0.0, max_value=1.0, format="percent")
@@ -337,7 +441,7 @@ with tab3:
 
 # ---------------------------------------------------------------- about
 with tab4:
-    st.markdown("#### How it works")
+    section("⚙️ How it works")
     steps = [(":material/edit_note:", "SMILES", "Molecule as text"),
              (":material/fingerprint:", "Fingerprint", "2048-bit Morgan"),
              (":material/compress:", "PCA", f"{meta.get('n_qubits')} components → qubit angles"),
@@ -355,12 +459,12 @@ with tab4:
 
     c1, c2 = st.columns(2)
     with c1:
-        st.markdown("#### Documentation")
+        section("📚 Documentation")
         for name, desc in [("METHODOLOGY", "dataset, kernels, evaluation"), ("RESULTS", "all experiments"),
                            ("LIMITATIONS", "what this does not show"), ("USER_GUIDE", "install and CLI")]:
             st.markdown(f"- [{name.replace('_', ' ').title()}]({REPO}/docs/{name}.md): {desc}")
     with c2:
-        st.markdown("#### Credits")
+        section("🙏 Credits")
         st.markdown("BACE data: Subramanian et al., *J. Chem. Inf. Model.* 2016 (via MoleculeNet).  \n"
                     "Quantum kernels: Havlíček et al., *Nature* 2019.  \n"
                     "Capstone project, Amrita Vishwa Vidyapeetham.")
