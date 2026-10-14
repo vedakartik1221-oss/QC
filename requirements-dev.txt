@@ -1,0 +1,5 @@
+# Development extras: tests and the notebook. Not needed to run or deploy the app.
+-r requirements.txt
+pytest==9.1.1
+pylatexenc==2.11      # circuit drawing in the notebook
+jupyter==1.1.1        # only needed to open the notebook

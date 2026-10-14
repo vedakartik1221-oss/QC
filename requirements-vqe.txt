@@ -1,0 +1,6 @@
+# Optional: needed only for the VQE module (python main.py --stage vqe).
+# PySCF has no official Windows wheels -> use WSL2 or Google Colab for this part,
+# or run the pipeline with --no-vqe.
+-r requirements.txt
+qiskit-nature==0.8.0
+pyscf==2.14.0

@@ -1,0 +1,14 @@
+{
+  "top-K by score": {
+    "objective": 1.960718465183196,
+    "mean_pairwise_similarity": 0.45714341499607064
+  },
+  "diversity-aware exact": {
+    "objective": 2.881513063903615,
+    "mean_pairwise_similarity": 0.1392956291580887
+  },
+  "QAOA": {
+    "objective": 2.8783546286115285,
+    "mean_pairwise_similarity": 0.1355515236194906
+  }
+}

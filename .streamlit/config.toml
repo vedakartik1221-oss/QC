@@ -1,0 +1,6 @@
+[server]
+headless = true
+maxUploadSize = 20          # MB, for the batch-screening CSV upload
+
+[browser]
+gatherUsageStats = false

@@ -1,0 +1,13 @@
+smiles,note
+Clc1cc(cc(Cl)c1)-c1cc2c(OC(CC23N=C(N)N(C)C3=O)(C)C)cc1,known BACE-1 active (in training data)
+O=C(C)c1ccccc1-c1cc2cc(CC(C(=O)NCCC(C)(C)C)C)c(nc2cc1)N,known BACE-1 active (in training data)
+S1(=O)(=O)N(c2cc(cc3c2n(cc3CC)CC1)C(=O)NC(Cc1ccccc1)C(O)C[NH2+]C1CCCCC1)C,known BACE-1 active (in training data)
+S(=O)(=O)(N(c1cc(cc(NCC)c1)C(=O)N[C@H]([C@H](O)C[NH2+][C@H](C(=O)NC1CCCCC1)C)Cc1ccccc1)c1ccccc1)C,known BACE-1 active (in training data)
+O=C1N(C)C(=NC1(C1CCCCC1)c1ccccc1)N,known BACE-1 inactive (in training data)
+OC(C(NC(=O)C1CC(CCC1)C(NC(=O)CC)(C)C)Cc1ccccc1)C[NH2+]Cc1cc(ccc1)C(C)C,known BACE-1 inactive (in training data)
+O1c2c(cc(OCC(C)C)cc2)C2(N=C(N)N(C)C2=O)CC1(C)C,known BACE-1 inactive (in training data)
+Clc1ccc(nc1)C(=O)Nc1cc2c(CCC23N=C(SC3)N)cc1,known BACE-1 inactive (in training data)
+CC(=O)Oc1ccccc1C(=O)O,aspirin - not a BACE-1 ligand
+Cn1cnc2c1c(=O)n(C)c(=O)n2C,caffeine - not a BACE-1 ligand
+CC(C)Cc1ccc(cc1)C(C)C(=O)O,ibuprofen - not a BACE-1 ligand
+this_is_not_a_smiles,INVALID on purpose - the app should skip it with a warning

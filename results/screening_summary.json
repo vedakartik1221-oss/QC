@@ -1,0 +1,18 @@
+{
+  "library_size": 303,
+  "base_hit_rate": 0.45544554455445546,
+  "top_k": 25,
+  "precision_at_k_quantum_score": 0.96,
+  "precision_at_k_final_score": 0.92,
+  "precision_at_k_classical": 0.84,
+  "ef10_quantum": 2.122463768115942,
+  "ef10_classical": 1.9028985507246376,
+  "ef10_final_score": 1.9028985507246376,
+  "actives_passing_lipinski": 0.9536903039073806,
+  "inactives_passing_lipinski": 0.9708029197080292,
+  "quantum_best_params": {
+    "scale": 0.25,
+    "C": 10.0,
+    "cv_auc": 0.8522733573358945
+  }
+}

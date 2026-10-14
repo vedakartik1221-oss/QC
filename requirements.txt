@@ -1,0 +1,15 @@
+# Core runtime (pipeline + Streamlit app). Python 3.10 - 3.12; deployed on 3.11.
+# Versions are pinned to the environment that trained models/*.joblib -
+# scikit-learn / numpy changes can break loading those pickles.
+qiskit==2.5.2
+qiskit-machine-learning==0.9.1
+qiskit-algorithms==0.4.0
+rdkit==2026.3.6
+numpy==2.4.6
+pandas==3.0.6
+scikit-learn==1.9.1
+scipy==1.17.1
+matplotlib==3.11.2
+joblib==1.6.0
+pillow==12.3.0
+streamlit==1.65.0

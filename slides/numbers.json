@@ -1,0 +1,386 @@
+{
+ "main": [
+  [
+   "Random Forest (2048-bit FP)",
+   "0.916 \u00b1 0.006",
+   "0.834",
+   "0.817",
+   "2.10",
+   "1.7"
+  ],
+  [
+   "Classical SVM (RBF, PCA-8)",
+   "0.879 \u00b1 0.007",
+   "0.806",
+   "0.784",
+   "1.98",
+   "4.4"
+  ],
+  [
+   "Random Forest (PCA-8)",
+   "0.877 \u00b1 0.015",
+   "0.807",
+   "0.785",
+   "2.07",
+   "0.8"
+  ],
+  [
+   "Quantum Kernel SVM (zz, reps=2, 8q)",
+   "0.873 \u00b1 0.011",
+   "0.794",
+   "0.772",
+   "2.07",
+   "11.1"
+  ]
+ ],
+ "fm": [
+  [
+   "zz_full (reps 2)",
+   "0.881 \u00b1 0.017",
+   "2.00"
+  ],
+  [
+   "z (reps 2)",
+   "0.877 \u00b1 0.009",
+   "2.02"
+  ],
+  [
+   "zz (reps 1)",
+   "0.874 \u00b1 0.012",
+   "2.00"
+  ],
+  [
+   "zz (reps 2)",
+   "0.873 \u00b1 0.011",
+   "2.07"
+  ],
+  [
+   "pauli_yzz (reps 2)",
+   "0.869 \u00b1 0.013",
+   "1.98"
+  ]
+ ],
+ "qubits": [
+  [
+   "4",
+   "0.837 \u00b1 0.011",
+   "0.843 \u00b1 0.010",
+   "5.7",
+   "4.4"
+  ],
+  [
+   "6",
+   "0.854 \u00b1 0.023",
+   "0.882 \u00b1 0.012",
+   "7.9",
+   "4.3"
+  ],
+  [
+   "8",
+   "0.873 \u00b1 0.011",
+   "0.879 \u00b1 0.007",
+   "11.1",
+   "4.4"
+  ],
+  [
+   "10",
+   "0.867 \u00b1 0.021",
+   "0.880 \u00b1 0.007",
+   "15.7",
+   "4.6"
+  ]
+ ],
+ "scaffold": [
+  [
+   "Random Forest (2048-bit FP)",
+   "0.916",
+   "0.781",
+   "1.49"
+  ],
+  [
+   "Random Forest (PCA-8)",
+   "0.877",
+   "0.707",
+   "1.32"
+  ],
+  [
+   "Classical SVM (RBF, PCA-8)",
+   "0.879",
+   "0.667",
+   "1.61"
+  ],
+  [
+   "Quantum Kernel SVM (zz, reps=2, 8q)",
+   "0.873",
+   "0.677",
+   "1.61"
+  ]
+ ],
+ "vqc": [
+  [
+   "Classical SVM (RBF, PCA-6)",
+   "0.828 \u00b1 0.031",
+   "0.738",
+   "0.3"
+  ],
+  [
+   "Quantum Kernel SVM (zz, reps=2, 6q)",
+   "0.811 \u00b1 0.008",
+   "0.725",
+   "1.3"
+  ],
+  [
+   "VQC (ZZ r1 + RealAmplitudes, 6q)",
+   "0.625 \u00b1 0.056",
+   "0.548",
+   "119.0"
+  ]
+ ],
+ "screen": [
+  [
+   "Quantum kernel SVM score",
+   "0.96",
+   "2.12"
+  ],
+  [
+   "Classical RBF-SVM score",
+   "0.84",
+   "1.90"
+  ],
+  [
+   "Final score (0.7 quantum + 0.3 QED - Lipinski penalty)",
+   "0.92",
+   "1.90"
+  ]
+ ],
+ "vqe": [
+  [
+   "H2",
+   "2",
+   "3",
+   "12",
+   "0.0002",
+   "20.5"
+  ],
+  [
+   "LiH (active space)",
+   "4",
+   "8",
+   "8",
+   "0.0003",
+   "19.2"
+  ]
+ ],
+ "scr": {
+  "library_size": 303,
+  "base_hit_rate": 0.45544554455445546,
+  "top_k": 25,
+  "precision_at_k_quantum_score": 0.96,
+  "precision_at_k_final_score": 0.92,
+  "precision_at_k_classical": 0.84,
+  "ef10_quantum": 2.122463768115942,
+  "ef10_classical": 1.9028985507246376,
+  "ef10_final_score": 1.9028985507246376,
+  "actives_passing_lipinski": 0.9536903039073806,
+  "inactives_passing_lipinski": 0.9708029197080292,
+  "quantum_best_params": {
+   "scale": 0.25,
+   "C": 10.0,
+   "cv_auc": 0.8522980842665179
+  }
+ },
+ "figs": {
+  "cmp": {
+   "path": "results/figures/01_model_comparison.png",
+   "w": 1040,
+   "h": 442
+  },
+  "roc": {
+   "path": "results/figures/02_roc_curves.png",
+   "w": 676,
+   "h": 598
+  },
+  "qb": {
+   "path": "results/figures/03_qubit_ablation.png",
+   "w": 702,
+   "h": 494
+  },
+  "fm": {
+   "path": "results/figures/04_featuremap_ablation.png",
+   "w": 754,
+   "h": 468
+  },
+  "sc": {
+   "path": "results/figures/05_scaffold_split.png",
+   "w": 962,
+   "h": 442
+  },
+  "vqc": {
+   "path": "results/figures/06_vqc_comparison.png",
+   "w": 936,
+   "h": 390
+  },
+  "top": {
+   "path": "results/figures/07_top_candidates.png",
+   "w": 936,
+   "h": 572
+  },
+  "ker": {
+   "path": "results/figures/08_kernel_matrix.png",
+   "w": 624,
+   "h": 546
+  },
+  "vqe": {
+   "path": "results/figures/09_vqe_curves.png",
+   "w": 1300,
+   "h": 494
+  },
+  "sel": {
+   "path": "results/figures/11_qaoa_selection.png",
+   "w": 1820,
+   "h": 507
+  },
+  "mol": {
+   "path": "results/figures/12_selected_molecules.png",
+   "w": 1227,
+   "h": 751
+  },
+  "mol2": {
+   "path": "results/figures/12b_selected_molecules_slide.png",
+   "w": 1183,
+   "h": 484
+  }
+ },
+ "qaoa": {
+  "A": [
+   [
+    "Top-K by score",
+    "0.921",
+    "0.907",
+    "0.886",
+    "0.779"
+   ],
+   [
+    "Random feasible subset",
+    "0.894",
+    "0.887",
+    "0.837",
+    "0.830"
+   ],
+   [
+    "Greedy (diversity-aware)",
+    "0.999",
+    "0.999",
+    "1.000",
+    "0.998"
+   ],
+   [
+    "QAOA p=1 (best feasible of 1024 shots)",
+    "1.000",
+    "1.000",
+    "0.993",
+    "0.996"
+   ],
+   [
+    "QAOA p=2 (best feasible of 1024 shots)",
+    "1.000",
+    "1.000",
+    "0.998",
+    "0.986"
+   ],
+   [
+    "QAOA p=3 (best feasible of 1024 shots)",
+    "1.000",
+    "1.000",
+    "0.999",
+    "0.993"
+   ],
+   [
+    "Random search, 1024 shots",
+    "1.000",
+    "1.000",
+    "1.000",
+    "0.998"
+   ]
+  ],
+  "B": [
+   [
+    "8",
+    "56",
+    "0.52",
+    "0.0092",
+    "0.0179",
+    "1.001",
+    "1.6"
+   ],
+   [
+    "10",
+    "120",
+    "0.40",
+    "0.0034",
+    "0.0083",
+    "1.001",
+    "2.5"
+   ],
+   [
+    "12",
+    "495",
+    "0.38",
+    "0.0008",
+    "0.0020",
+    "1.001",
+    "4.3"
+   ],
+   [
+    "14",
+    "1001",
+    "0.33",
+    "0.0003",
+    "0.0010",
+    "1.002",
+    "10.8"
+   ]
+  ],
+  "L": [
+   [
+    "0.0",
+    "1.00",
+    "100%"
+   ],
+   [
+    "0.25",
+    "0.95",
+    "8%"
+   ],
+   [
+    "0.5",
+    "0.88",
+    "8%"
+   ],
+   [
+    "1.0",
+    "0.68",
+    "8%"
+   ]
+  ],
+  "R": [
+   [
+    "top-K by score",
+    "1.96",
+    "0.46"
+   ],
+   [
+    "diversity-aware exact",
+    "2.88",
+    "0.14"
+   ],
+   [
+    "QAOA",
+    "2.88",
+    "0.14"
+   ]
+  ],
+  "pools": 8,
+  "hit_share": 0.6979166666666666
+ }
+}
